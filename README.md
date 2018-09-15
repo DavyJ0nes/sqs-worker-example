@@ -6,17 +6,25 @@ Example app that uses the worker pattern to pull from an SQS queue.
 
 ## Usage
 
-Usage instructions with code examples
+You should already have the aws cli installed as well as have terraform installed.
 
 ```shell
-# Here is the code example
-go run something
+# Spin up required infrastructure
+cd infra
+terraform init
+terraform apply
+
+# Run worker
+go run main.go
+
+# Send message to topic
+aws sns publish --message "mobiles chirpin" --topic-arn "{sns_topic_arn}"
 ```
 
 ## TODO
 
-- [ ] Update README
+- [x] Update README
 
 ## License
 
-MIT
+[LICENSE](./LICENSE)
